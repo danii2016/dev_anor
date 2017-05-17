@@ -111,10 +111,12 @@ body {
 }
 #display-content{
     min-height: 400px;
-    border : 5px solid;
+    background-color : #fff;
+    padding: 10px 10px 50px 10px;
+    text-decoration: justify;
 }
 #upper-content {
-    padding: 40px 15px 0px 15px;
+    padding: 0px 15px 0px 15px;
 }
 #logo-image-min {
     width: 120px;
@@ -136,4 +138,17 @@ body {
 }
 #header-nav-container .navbar-inverse li a{
     color: #000;
+}
+
+/* Contenu accueil */
+#image-accueil {
+    width: 300px; 
+    height: 300px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+#accueil-p {
+    text-align: justify;
+    text-justify: inter-word;
 }

@@ -1,2 +1,10 @@
-<img src="<?php echo base_url('assets/image/pictures/dg.jpg') ?>" style="width: 300px; height: 300px;">
-<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+<img src="<?php echo base_url('assets/image/pictures/dg.jpg') ?>" id="image-accueil">
+<p id = "accueil-p">
+<?php if(isset($data_acc)) echo $data_acc -> acc_content ?>
+</p>
+<p>
+<span class = "pull-right">
+<?php if(isset($data_acc)) echo $data_acc -> pers_nom." ".$data_acc -> pers_prenom."<br/>" ?>
+<?php if(isset($data_acc)) echo $data_acc -> pers_poste ?>
+</span>
+</p>
