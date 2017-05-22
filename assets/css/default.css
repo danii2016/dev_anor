@@ -21,10 +21,12 @@ body {
 }
 .info-icon {
     margin-top: 15%;
+     color: rgb(38, 96, 171);
 }
+/*
 #span-contact {
     color: rgb(38, 96, 171);
-}
+} */
 #logo-anor {
     padding-right: 60px;
 }
@@ -78,7 +80,9 @@ body {
         margin-top: -30px !important:
         padding: 0px;
     }
-
+    #image-accueil {
+        width: 100%;
+    }
 }
 @media screen and (max-width: 990px) {
     #logo-mines, #logo-anor, .info-icon {
@@ -139,9 +143,17 @@ body {
 #header-nav-container .navbar-inverse li a{
     color: #000;
 }
-
+#head-navbar .dropdown ul {
+    width: 100%;
+    background: #EFD339;
+}
+footer {
+    background-color: #7fe735;
+    margin-right: 10px;
+    padding: 10px;
+}
 /* Contenu accueil */
-#image-accueil {
+.image-page-accueil {
     width: 300px; 
     height: 300px;
     float: left;
@@ -151,4 +163,8 @@ body {
 #accueil-p {
     text-align: justify;
     text-justify: inter-word;
+}
+/*A propos */
+.image-page-propos {
+    width: 100%;
 }

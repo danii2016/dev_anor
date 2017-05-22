@@ -1,7 +1,7 @@
 <div id = "js-content">
     <?php $this->load->view("client/com/_js"); ?>
 </div>
-<footer class="text-center">
+<footer class="text-center col-xs-12 col-md-12 margin-top-ten">
 	<div>
 		© ANOR <?php echo date("Y"); ?>
 		<br>

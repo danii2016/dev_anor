@@ -14,7 +14,7 @@
 <body>
 <input type="hidden" id="base-url" value="<?php echo base_url(); ?>" />
 <div class="row margin-right-ten" id = "header-content">
-    <div class="hidden-xs col-md-12" id="content-head">
+    <div class="col-md-12" id="content-head">
         <div class="hidden-xs col-md-12" id = "header-acronymes">
             <span class="pull-left" style="font-weight: bold;">
                 <?php echo $this -> lang ->line("TITLE_MIN_MINE"); ?>
@@ -49,14 +49,14 @@
             <nav class="navbar navbar-inverse">
               <div class="container-fluid">
                 <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#head-navbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>                        
                   </button>
                   <a class="navbar-brand visible-xs" href="#">ANOR</a>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
+                <div class="collapse navbar-collapse" id="head-navbar">
                   <ul class="nav navbar-nav">
                     <li class="<?php if($page_menu == "accueil") echo "active"; ?>">
                         <a href="<?php echo base_url(); ?>" class="menu-link">
@@ -70,11 +70,20 @@
                             <span class="icon-bar"><?php echo $this -> lang ->line("TEXT_MENU_ABOUT"); ?></span>
                         </a>
                     </li>
-                    <li class="<?php if($page_menu == "procedure-a-suivre") echo "active"; ?>">
-                        <a href="<?php echo base_url("procedure_a_suivre"); ?>" class="menu-link">
+                    <li class="dropdown <?php if($page_menu == "procedure-a-suivre") echo "active"; ?>">
+                        <a href="<?php // echo base_url("procedure_a_suivre"); ?>" class="menu-link dropdown-toggle" data-toggle="dropdown">
                             <img class = "menu-icon-image hidden-xs" src ="<?php echo base_url("assets/image/menu_process.jpg"); ?>" /><br/>
                             <span class="icon-bar"><?php echo $this -> lang ->line("TEXT_MENU_PROCESS"); ?></span>
+                              
                         </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url("procedure_a_suivre/orpailleur"); ?>">Orpailleur</a></li>
+                            <li><a href="<?php echo base_url("procedure_a_suivre/collecteur_1"); ?>">Collecteur Catégorie 1</a></li>
+                            <li><a href="<?php echo base_url("procedure_a_suivre/collecteur_2"); ?>">Collecteur Catégorie 2</a></li>
+                            <li><a href="<?php echo base_url("procedure_a_suivre/comptoir_com"); ?>">Comptoir Commercial</a></li>
+                            <li><a href="<?php echo base_url("procedure_a_suivre/comptoir_fonte"); ?>">Comptoir de Fonte</a></li>
+                            <li><a href="<?php echo base_url("procedure_a_suivre/exportation"); ?>">Exportation</a></li>
+                          </ul>
                     </li>
                     <li class="<?php if($page_menu == "disposition-legale") echo "active"; ?>">
                         <a href="<?php echo base_url("disposition_legale"); ?>" class="menu-link">

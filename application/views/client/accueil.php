@@ -1,4 +1,4 @@
-<img src="<?php echo base_url('assets/image/pictures/dg.jpg') ?>" id="image-accueil">
+<img src="<?php echo base_url('assets/image/pictures/dg.jpg') ?>" id="image-accueil" class="image-page-accueil">
 <p id = "accueil-p">
 <?php if(isset($data_acc)) echo $data_acc -> acc_content ?>
 </p>

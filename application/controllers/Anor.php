@@ -10,6 +10,10 @@ class Anor extends ANOR_Controller {
     protected $_ESPACE="client/";
     protected $_VIEWDIR = "client";
     
+    public function __construct() {
+		parent::__construct(); 
+    }
+    
 	public function index() {
         $acc = $this -> accueil_m -> get_accueil();
 		$this->loadData('data_acc',$acc);
