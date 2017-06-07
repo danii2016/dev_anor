@@ -1,0 +1,24 @@
+#pdf-canvas {
+    border: 1px solid;
+}
+#pdf-buttons a{
+    color: #807f7f;
+    cursor: pointer;
+}
+.col-md-4 h5{
+    background: rgb(219, 219, 219) none repeat scroll 0% 0%;
+    padding: 5px;
+    color: #D74E30;
+    font-weight: bold;
+}
+.col-md-4 a{
+    color: #000;
+}
+.col-md-4 {
+    word-wrap: break-word;
+}
+#pdf-main-info h3{
+    color: rgb(123, 123, 206);
+    text-align: center;
+    margin-top: 20%;
+}

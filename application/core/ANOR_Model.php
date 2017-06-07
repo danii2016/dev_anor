@@ -30,7 +30,7 @@ class ANOR_model extends CI_Model{
             $method = "row";
         } else { 
             $method = "result";
-            if($this->order != "")
+            if($this->_order != "")
             {
                 $this->db->order_by($this->_order);
             }

@@ -79,14 +79,14 @@
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo base_url("procedure_a_suivre/orpailleur"); ?>">Orpailleur</a></li>
                             <li><a href="<?php echo base_url("procedure_a_suivre/collecteur_1"); ?>">Collecteur Catégorie 1</a></li>
-                            <li><a href="<?php echo base_url("procedure_a_suivre/collecteur_2"); ?>">Collecteur Catégorie 2</a></li>
+                            <li><a href="<?php echo base_url("procedure_a_suivre/collecteur_2"); ?>">Collecteur Catégorie 2</a></li> 
                             <li><a href="<?php echo base_url("procedure_a_suivre/comptoir_com"); ?>">Comptoir Commercial</a></li>
                             <li><a href="<?php echo base_url("procedure_a_suivre/comptoir_fonte"); ?>">Comptoir de Fonte</a></li>
                             <li><a href="<?php echo base_url("procedure_a_suivre/exportation"); ?>">Exportation</a></li>
                           </ul>
                     </li>
                     <li class="<?php if($page_menu == "disposition-legale") echo "active"; ?>">
-                        <a href="<?php echo base_url("disposition_legale"); ?>" class="menu-link">
+                        <a href="<?php echo base_url("cadre_legale"); ?>" class="menu-link">
                             <img class = "menu-icon-image hidden-xs" src ="<?php echo base_url("assets/image/menu_disposition.jpg"); ?>" /><br/>
                             <span class="icon-bar"><?php echo $this -> lang ->line("TEXT_MENU_DISPOSITION"); ?></span>
                         </a>

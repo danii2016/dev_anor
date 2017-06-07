@@ -11,3 +11,21 @@
         <?php $this->load->view("client/com/_menu_aside"); ?>
     </div>
 </div>
+<div class="modal fade" id="modal-galerie" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h5 class="modal-title" id=""><b>Galrie image</b></h5>
+      </div>
+      <div class="modal-body row">
+		<div id = "content-photo-galerie" class = "carousel slide col-md-8" data-ride="carousel">
+            
+        </div>
+		<div id = "content-photo-article" class = "col-md-4">
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

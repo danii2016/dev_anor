@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Anor extends ANOR_Controller {
     
-    protected $_JS = array();
+    protected $_JS = array("default.js");
 	protected $_CSS = array("default.css");
     protected $_MODELS = array("accueil_m");
     
@@ -21,4 +21,12 @@ class Anor extends ANOR_Controller {
 		$this->loadData('page_menu','accueil');
 		$this->loadPage('accueil');
 	}
+    
+    public function get_imagegalerie($repertoire) {
+        $fichiers = array_map("basename", glob(APPPATH.'../assets/image/galerie/'.$repertoire.'/*.*'));
+        //var_dump($fichiers);
+        $this -> loadData('repertoire', $repertoire);
+        $this -> loadData('images', $fichiers);
+        $this -> loadPageAjax('galerie_image');
+    }
 }

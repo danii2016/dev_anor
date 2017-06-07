@@ -6,7 +6,7 @@
  * version 		: 1.0
  - create		: 20117-05-16
  */
-class Personne_m extends CI_Model{
+class Personne_m extends ANOR_Model{
    
 	protected $_table = "personne";
     protected $_pk = "pers_id";

@@ -15,7 +15,7 @@ $(document).ready(function() {
                    if(data.status == 1) {
                        document.location.href = base_url()+'administration';
                    } else {
-                        $('#error-login').html(data.message != undefined ? data.message : 'Erreur lors de l\'authentification. Actualisez puis réessayer').show().delay(3000).fadeOut(500);
+                        $('#error-login').html(data.message != undefined ? data.message : 'Erreur lors de l\'authentification. Veuillez réessayer').show().delay(3000).fadeOut(500);
                    }
                    $('#circleG').hide();
                },

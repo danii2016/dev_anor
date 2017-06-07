@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Liens_professionnels extends ANOR_Controller {
     
-    protected $_JS = array();
+    protected $_JS = array("default.js");
 	protected $_CSS = array("default.css");
     
     protected $_ESPACE="client/";

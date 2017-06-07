@@ -13,7 +13,7 @@ class ANOR_Controller extends CI_Controller {
 	 */
 	protected $_DATA = array();
 	private $_SCRIPTS = array("jquery-3.2.1.min.js","bootstrap.min.js");
-	private $_STYLES = array("bootstrap.min.css","bootstrap-theme.min.css","global.css");
+	private $_STYLES = array("bootstrap.min.css","bootstrap-theme.min.css","global.css","carousel.css");
 	protected $_JS = array();
 	protected $_CSS = array();
 	/**
@@ -50,12 +50,15 @@ class ANOR_Controller extends CI_Controller {
 	 
 	public function __construct() {
 		parent::__construct(); 
-		
+        if($this -> _PROTEGER) {
+            $this->load->library('session');
+        }
 		$this->loadModelConfig();
-
+		$this ->load->model("galerie_m");
+        $photos = $this -> galerie_m -> get();
 		$this -> load -> helper('url');
-
 		$this->_data['lang'] = $this->choixLangue();
+        $this->loadData('photos',$photos);
 	}
 
 	public function testPage404($contr)

@@ -9,6 +9,8 @@ class Administration extends ANOR_Controller {
     protected $_ESPACE="administrateur/";
     protected $_VIEWDIR = "administrateur";
     
+    protected $_MODELS = array("uti_utilisateur_m");
+    
     protected $_PROTEGER = TRUE;
     
     public function __construct() {
@@ -16,6 +18,7 @@ class Administration extends ANOR_Controller {
     }
     
 	public function index() {
+        var_dump($this -> session -> userdata['session_admin_anor']);
         if($this->_PROTEGER && !isset($this -> session -> userdata['session_admin_anor'])) {
 			redirect('administration/identification');
 		}
@@ -25,5 +28,17 @@ class Administration extends ANOR_Controller {
     public function identification() {
         $this->loadData('authentify', true);
         $this->loadPage('com/_identification');
+        $res = $this -> uti_utilisateur_m -> save_user("1", "admin", "admin319");
+        
     } 
+    
+    public function authentifier() {
+        $login = $this -> input -> post('login');
+        $pwd = $this -> input -> post('pass');
+        $res = $this -> uti_utilisateur_m -> authentifie($login, $pwd);
+        if($res['status']) {
+            $this -> session -> userdata['session_admin_anor'] = $res['user'];
+        }
+        echo json_encode($res); 
+    }
 }

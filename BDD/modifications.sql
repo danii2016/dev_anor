@@ -42,3 +42,124 @@ ALTER TABLE `a_propos`
 --
 ALTER TABLE `a_propos`
 MODIFY `ap_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+
+--07-06-2017
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cadre`
+--
+
+CREATE TABLE IF NOT EXISTS `cadre` (
+`cad_id` int(11) NOT NULL,
+  `cad_titre` varchar(255) NOT NULL,
+  `cad_repertoire` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cadre`
+--
+
+INSERT INTO `cadre` (`cad_id`, `cad_titre`, `cad_repertoire`) VALUES
+(1, 'Bijouterie  Lapidairerie', 'Bijouterie  Lapidairerie'),
+(2, 'Code Minier 2005 021', 'Code Minier 2005 021'),
+(3, 'Collecte produits de Mines', 'Collecte produits de Mines'),
+(4, 'Constitution', 'Constitution'),
+(5, 'CTD', 'CTD'),
+(6, 'Exportation', 'Exportation'),
+(7, 'Exportation non commerciale', 'Exportation non commerciale'),
+(8, 'Groupement', 'Groupement'),
+(9, 'Laboratoire', 'Laboratoire'),
+(10, 'Parafiscalite miniere', 'Parafiscalite miniere'),
+(11, 'Textes filiere Or  ANOR', 'Textes filiere Or  ANOR'),
+(12, 'Transactions', 'Transactions'),
+(13, 'Valeur de reference', 'Valeur de reference');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `galerie`
+--
+
+CREATE TABLE IF NOT EXISTS `galerie` (
+`gal_id` int(11) NOT NULL,
+  `gal_repertoire` varchar(50) NOT NULL,
+  `gal_libelle` varchar(255) NOT NULL,
+  `gal_imagemenu` varchar(255) NOT NULL,
+  `gal_soutitre` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `galerie`
+--
+
+INSERT INTO `galerie` (`gal_id`, `gal_repertoire`, `gal_libelle`, `gal_imagemenu`, `gal_soutitre`) VALUES
+(1, 'Atelier_panorama', 'Atelier panorama', '20170421_121216.jpg', 'Atelier à l''hotel panorama Décembre 2016'),
+(2, 'Atelier_Lanja_Miakatra', 'Atelier lanja miakatra', 'IMG_3394.JPG', ''),
+(3, 'Dgoto_Dabolava', 'Dgoto Dabolava', 'SAM_4862.JPG', ''),
+(4, 'FAMBOLEKAZO_Apangabe', 'Fambolen-kazo Ampangabe', 'IMG_20160205_115014.jpg', ''),
+(5, 'Foir Betsiboka', 'Foir Betsiboka', 'IMG_4493.JPG', ''),
+(6, 'Foire_Antsirabe', 'Foire Antsirabe', 'IMG_3335.JPG', ''),
+(7, 'Guichet_Unique_MPMP', 'Guichet Unique Ministère auprès de la Présidence chargé des Mines et du Pétrole', 'IMG_4431.JPG\r\n', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `statistique`
+--
+
+CREATE TABLE IF NOT EXISTS `statistique` (
+`stat_id` int(11) NOT NULL,
+  `stat_annee` int(4) NOT NULL,
+  `stat_repertoire` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `statistique`
+--
+
+INSERT INTO `statistique` (`stat_id`, `stat_annee`, `stat_repertoire`) VALUES
+(1, 2016, '2016'),
+(2, 2017, '2017');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cadre`
+--
+ALTER TABLE `cadre`
+ ADD PRIMARY KEY (`cad_id`);
+
+--
+-- Indexes for table `galerie`
+--
+ALTER TABLE `galerie`
+ ADD PRIMARY KEY (`gal_id`);
+
+--
+-- Indexes for table `statistique`
+--
+ALTER TABLE `statistique`
+ ADD PRIMARY KEY (`stat_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cadre`
+--
+ALTER TABLE `cadre`
+MODIFY `cad_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `galerie`
+--
+ALTER TABLE `galerie`
+MODIFY `gal_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `statistique`
+--
+ALTER TABLE `statistique`
+MODIFY `stat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
