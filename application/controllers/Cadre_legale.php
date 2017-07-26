@@ -13,7 +13,7 @@ class Cadre_legale extends ANOR_Controller {
 	public function index() {
         $cadres = $this -> cadre_m -> get();
 		$this->loadData('page_menu','disposition-legale');
-		$this->loadData('cadres',$cadres);
+		$this->loadData('rubriques',$cadres);
 		$this->loadPage('cadre_legale');
 	}
 }

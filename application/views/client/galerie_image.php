@@ -1,5 +1,6 @@
+
 <!--<ol class="carousel-indicators">
-<?php foreach($images as $i => $image) : ?>
+<?php var_dump($images); foreach($images as $i => $image) : ?>
   <li data-target="#content-photo-galerie" data-slide-to="<?php echo $i; ?>" class="<?php echo $i == 0 ? 'active' : ''; ?>"></li>
 <?php endforeach; ?>
 </ol>-->

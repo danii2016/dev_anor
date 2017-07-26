@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Administration extends ANOR_Controller {
 
-    protected $_JS = array("admin-script.js");
+    protected $_JS = array("admin-script.js","lumino.glyphs.js");
 	protected $_CSS = array("admin-styles.css","datepicker3.css","animation.css");
     
     protected $_ESPACE="administrateur/";
@@ -18,18 +18,16 @@ class Administration extends ANOR_Controller {
     }
     
 	public function index() {
-        var_dump($this -> session -> userdata['session_admin_anor']);
         if($this->_PROTEGER && !isset($this -> session -> userdata['session_admin_anor'])) {
 			redirect('administration/identification');
 		}
-		$this->load->view('welcome_message');
+		$this->loadPage('accueil');
 	}
     
     public function identification() {
         $this->loadData('authentify', true);
         $this->loadPage('com/_identification');
-        $res = $this -> uti_utilisateur_m -> save_user("1", "admin", "admin319");
-        
+        //$res = $this -> uti_utilisateur_m -> save_user("1", "admin", "admin319");
     } 
     
     public function authentifier() {

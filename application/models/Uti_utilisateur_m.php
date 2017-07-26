@@ -17,12 +17,12 @@ class Uti_utilisateur_m extends ANOR_Model{
     }
     
     public function authentifie($login, $pass) {
-        $res = $this -> db -> where('uti_login', $login) -> where('uti_mdp', sha1($pass)) -> get($this -> _table) -> row();
+        $res = $this -> db -> where('uti_login', $login) -> where('uti_mdp', sha1($pass."+")) -> get($this -> _table) -> row();
         return empty($res) ? array('status' => 0, 'message' => 'Login ou mot de passe incorrect', 'user' => array()) : array('status' => 1, 'message' => 'Authentifié', 'user' => $res);
     }
     
     public function save_user($type, $login, $pass, $id = null) {
-        $pass = sha1($pass);
+        $pass = sha1($pass."+");
         $info_user = array('utype_id' => $type,
                           'uti_login' => $login,
                           'uti_mdp' => $pass);

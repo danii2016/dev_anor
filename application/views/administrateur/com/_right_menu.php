@@ -1,72 +1,38 @@
-<?php 
-	$user = $this->session->userdata("session_ent_user");
-    $id = "";
-	switch ($user['profil']) {
-		case 'A':
-			$id .= "espaceAdministrateur";
-			break;
-		case 'P':
-			$id .= "espaceProfesseurs";
-			break;
-		case 'F':
-			$id .= "espaceResponsables";
-			break;
-		case 'E':
-			$id .= "espaceEleves";
-			break;
-		case 'D':
-			$id .= "espaceAdministrationDirection";
-			break;			
-		default:
-			break;
-	}
-?>
-<form id="formChng" role="form">
-	<div class="infodiv">Changement de mot de passe</div>
-	</br>
-	<div class="form-group" id="">
-    	<label for="mdp" class="col-sm-4 control-label">Ancien mot de passe</label>
-	    <div class="col-sm-6">
-	      <input type="password" class="form-control"  id="oldmdp" required>
-	    </div>
-    </div>
-    <div class="form-group" id="">
-    	<label for="mdp" class="col-sm-4 control-label">Nouveau mot de passe</label>
-	    <div class="col-sm-6">
-	      <input type="password" class="form-control"  id="newmdp">
-	    </div>
-    </div>
-    <div class="form-group" id="">
-    	<label for="mdp" class="col-sm-4 control-label">Confirmation</label>
-	    <div class="col-sm-6">
-	      <input type="password" class="form-control"  id="confmdp">
-	  	  <!-- <br> -->
-	      <!-- <input class="btn btn-xs btn-primary pull-right savemdp" value="Enregistrer" id="<?php echo $id ?>" /> -->
-	    </div>
-    </div>
-		<div class="infomsg" id="erreur">
-				<?php if(!empty($msgErr)) echo $msgErr; ?>		
-		</div>
-</form>
-
-<?php $user = $this->session->userdata("session_ent_user");?>
-<div id="testsel">
-	<?php if($user['changeMdp'] == "1") { ?>
-	<div class="form-group" id="">
-    	<label for="mdp" class="col-sm-3 control-label">Mot de passe</label>
-	    <div class="col-sm-7">
-	      <input type="password" class="form-control" readonly="readonly" value="<?php // echo $user['mdp'] ?>*******" id="mdp">
-	      <a class="changmdp control-label pull-right" href="#" id="<?php echo $id ?>" >
-	      	Changer le mot de passe
-	      </a>
-	    </div>
-    </div>
-    <div class="infomsg" id="erreur">
-			<?php if(!empty($msgErr)) echo $msgErr; ?>
-	</div>
-	<?php } else {?> 
-		<div class="alert alert-warning text-left">
-        	<span class="glyphicon glyphicon-info-sign"></span> Désolé, vous n'êtes pas autorisé à modifier votre mot de passe.
-    	</div>
-	<?php } ?>
-</div>
+<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		<ul class="nav menu">
+			<li class="active"><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Actualites</a></li>
+			<li><a href="widgets.html"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Exportations</a></li>
+			<!--<li><a href="charts.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Charts</a></li>
+			<li><a href="tables.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Tables</a></li>
+			<li><a href="forms.html"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Forms</a></li>
+			<li><a href="panels.html"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Alerts &amp; Panels</a></li>
+			<li><a href="icons.html"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Icons</a></li>
+			<li class="parent ">
+				<a href="#">
+					<span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Dropdown 
+				</a>
+				<ul class="children collapse" id="sub-item-1">
+					<li>
+						<a class="" href="#">
+							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 1
+						</a>
+					</li>
+					<li>
+						<a class="" href="#">
+							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 2
+						</a>
+					</li>
+					<li>
+						<a class="" href="#">
+							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="login.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Login Page</a></li>-->
+		</ul>

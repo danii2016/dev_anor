@@ -8,8 +8,8 @@
  */
 class Cadre_m extends ANOR_Model{
    
-	protected $_table = "cadre";
-    protected $_pk = "cad_id";
+	protected $_table = "cadre_rubrique";
+    protected $_pk = "crub_id";
 	protected $_lang = "fr";
 	
     public function __construct() {

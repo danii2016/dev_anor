@@ -47,18 +47,30 @@ class ANOR_Controller extends CI_Controller {
 	 */
     protected $_ESPACE="";
     protected $_TEMPLATE = "com/_layout";
+    
+    protected $adresse = "<p>VILLA ANOR AMPANOTOKANA</p>
+                               <p>ROUTE ANDRAISORO</p>
+                               <p>Tel : 032 03 214 14</p>
+                               <p>Email : anor@anor.mg</p>";
 	 
 	public function __construct() {
 		parent::__construct(); 
         if($this -> _PROTEGER) {
             $this->load->library('session');
+        } else {
+            $this->loadData('adresse', $this -> adresse);
         }
 		$this->loadModelConfig();
-		$this ->load->model("galerie_m");
-        $photos = $this -> galerie_m -> get();
+        if(!$this -> _PROTEGER) {
+            $this ->load->model("galerie_m");
+            $this ->load->model("actualite_m");
+            $photos = $this -> galerie_m -> get_galeries();
+            $actus = $this -> actualite_m -> get_actualites();
+            $this->loadData('photos',$photos);
+            $this->loadData('actualites',$actus);
+        }
 		$this -> load -> helper('url');
 		$this->_data['lang'] = $this->choixLangue();
-        $this->loadData('photos',$photos);
 	}
 
 	public function testPage404($contr)

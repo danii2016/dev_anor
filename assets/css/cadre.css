@@ -5,7 +5,7 @@
     color: #807f7f;
     cursor: pointer;
 }
-.col-md-4 h5{
+#cadre-liste-container h5{
     background: rgb(219, 219, 219) none repeat scroll 0% 0%;
     padding: 5px;
     color: #D74E30;
@@ -21,4 +21,14 @@
     color: rgb(123, 123, 206);
     text-align: center;
     margin-top: 20%;
+}
+#cadre-liste-container a {
+    cursor: pointer;
+}
+.tab-pane {
+    padding: 15px;
+}
+.cadre-fichier-pdf.active {
+    color: #000099;
+    text-decoration: underline;
 }

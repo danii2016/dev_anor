@@ -15,12 +15,12 @@
 <input type="hidden" id="base-url" value="<?php echo base_url(); ?>" />
 <div class="row margin-right-ten" id = "header-content">
     <div class="col-md-12" id="content-head">
+            <h1 id = "title-header">
+                <?php  echo $this -> lang ->line("TITLE_ANOR"); ?>
+            </h1>
         <div class="hidden-xs col-md-12" id = "header-acronymes">
-            <span class="pull-left" style="font-weight: bold;">
+            <span class="pull-left" id = "title-mpmp" style="font-weight: bold; text-align:center">
                 <?php echo $this -> lang ->line("TITLE_MIN_MINE"); ?>
-            </span>
-            <span class="pull-right">
-                <?php // echo $this -> lang ->line("TITLE_ANOR"); ?>
             </span>
         </div>
         <div class="hidden-xs col-md-12 margin-left-ten" id = "header-logos">
@@ -70,7 +70,7 @@
                             <span class="icon-bar"><?php echo $this -> lang ->line("TEXT_MENU_ABOUT"); ?></span>
                         </a>
                     </li>
-                    <li class="dropdown <?php if($page_menu == "procedure-a-suivre") echo "active"; ?>">
+                    <!--<li class="dropdown <?php if($page_menu == "procedure-a-suivre") echo "active"; ?>">
                         <a href="<?php // echo base_url("procedure_a_suivre"); ?>" class="menu-link dropdown-toggle" data-toggle="dropdown">
                             <img class = "menu-icon-image hidden-xs" src ="<?php echo base_url("assets/image/menu_process.jpg"); ?>" /><br/>
                             <span class="icon-bar"><?php echo $this -> lang ->line("TEXT_MENU_PROCESS"); ?></span>
@@ -84,6 +84,12 @@
                             <li><a href="<?php echo base_url("procedure_a_suivre/comptoir_fonte"); ?>">Comptoir de Fonte</a></li>
                             <li><a href="<?php echo base_url("procedure_a_suivre/exportation"); ?>">Exportation</a></li>
                           </ul>
+                    </li>-->
+                    <li class="<?php if($page_menu == "procedure-a-suivre") echo "active"; ?>">
+                        <a href="<?php echo base_url("procedure_a_suivre"); ?>" class="menu-link">
+                            <img class = "menu-icon-image hidden-xs" src ="<?php echo base_url("assets/image/menu_process.jpg"); ?>" /><br/>
+                            <span class="icon-bar"><?php echo $this -> lang ->line("TEXT_MENU_PROCESS"); ?></span>
+                        </a>
                     </li>
                     <li class="<?php if($page_menu == "disposition-legale") echo "active"; ?>">
                         <a href="<?php echo base_url("cadre_legale"); ?>" class="menu-link">

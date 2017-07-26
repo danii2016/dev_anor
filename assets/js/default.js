@@ -1,27 +1,31 @@
 var base_url;
 $(document).ready(function() {
     base_url = $('#base-url').val();
-   $(document).on('click','.carousel-caption', function(e) {
-       var target = e.target;
+   $(document).on('click','.image-galerie img', function(e) {
        var rep = $(this).parent().attr('dir');
-       if($(target).is("p") || $(target).is("h3")) {
-           $.ajax({
-               url: base_url+'index.php/Anor/get_imagegalerie/'+rep,
-               success: function(data) {
-                   $('#content-photo-galerie').html(data);
-                   $('#modal-galerie').modal('show');
-               },
-               function: function() {
-                   alert('echec de l\'affichage des photos');
-               }
-           });
-       }
+       var title1 = $(this).parent().find('h5').html()
+       $.ajax({
+           url: base_url+'index.php/Anor/get_imagegalerie/'+rep,
+           success: function(data) {
+               $('#title-galerie').html(title1);
+               $('#content-photo-galerie').html(data);
+               $('#modal-galerie').modal('show');
+           },
+           function: function() {
+               alert('echec de l\'affichage des photos');
+           }
+       });
+       
    });
     
     $('.image-stat').on('click', function(){
         show_modal('modalImgStat');
         $('#img-zoom').attr('src', $(this).attr('src'));
         $('#caption').html($(this).attr('alt'));
+    });
+    
+    $('.actualite h5').on('click', function() {
+       window.location.href = base_url+'actualites/consulter/'+$(this).attr('id').split('-')[1]; 
     });
 });
 

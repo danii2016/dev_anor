@@ -12,11 +12,16 @@ $(document).ready(function() {
     // This is better than showing the ugly looking file input element
     $(".cadre-fichier-pdf").on('click', function(e) {
         e.preventDefault();
-        if(!$('#pdf-main-wrapper').is(':visible')) {
-            $('#pdf-main-wrapper').show();
-            $('#pdf-main-info').hide();
+        if(!$(this).hasClass('active')) {
+            $('.cadre-fichier-pdf').removeClass('active');
+            $(this).addClass('active');
+            if(!$('#pdf-main-wrapper').is(':visible')) {
+                $('#pdf-main-wrapper').show();
+                $('#pdf-main-info').hide();
+            }
+            $('#pdf-download').attr('href', $(this).attr('source'));
+            showPDF($(this).attr('source'));
         }
-        showPDF($(this).attr('href'));
     });
 
     /*// When user chooses a PDF file
@@ -37,6 +42,20 @@ $(document).ready(function() {
     $("#pdf-next").on('click', function() {
         if(__CURRENT_PAGE != __TOTAL_PAGES)
             showPage(++__CURRENT_PAGE);
+    });
+    
+    $('.nav.nav-tabs li').on('click', function() {
+       if(!$(this).hasClass('active')) {
+           $('.cadre-fichier-pdf').removeClass('active');
+           var pdfinner = $('#pdf-main-container').parent().html(), idtab = $(this).find('a').attr('href');
+           $('#pdf-main-container').remove();
+           $(idtab+' .col-md-8.col-xs-12').html(pdfinner);
+            __PAGE_RENDERING_IN_PROGRESS = 0;
+            __CANVAS = $('#pdf-canvas').get(0);
+            __CANVAS_CTX = __CANVAS.getContext('2d');
+           $('#pdf-main-wrapper').hide();
+           $('#pdf-main-info').show();
+       } 
     });
 });
 

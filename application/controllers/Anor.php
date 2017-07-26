@@ -23,9 +23,9 @@ class Anor extends ANOR_Controller {
 	}
     
     public function get_imagegalerie($repertoire) {
-        $fichiers = array_map("basename", glob(APPPATH.'../assets/image/galerie/'.$repertoire.'/*.*'));
-        //var_dump($fichiers);
-        $this -> loadData('repertoire', $repertoire);
+        $fichiers = array_map("basename", glob(APPPATH.'../assets/image/galerie/'.str_replace('%20',' ',$repertoire).'/*.*'));
+        //var_dump($repertoire);
+        $this -> loadData('repertoire', str_replace('%20',' ',$repertoire));
         $this -> loadData('images', $fichiers);
         $this -> loadPageAjax('galerie_image');
     }
