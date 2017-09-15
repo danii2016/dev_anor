@@ -34,6 +34,24 @@ class Uti_utilisateur_m extends ANOR_Model{
         return $res;
     }
     
+    public function save_profil($id, $login, $pass, $newpass) {
+        if($pass == "") {
+            $info_user = array('uti_login' => $login);
+            $res = $this -> db -> where('uti_id', $id) -> update($this -> _table, $info_user);
+            return array('status' => $res ? 1 : 0, 'message' => $res ? 'Enregistré avec succès' : 'Echec de la mise à jour. Veuillez réessayer');
+        } else {
+            $exist = $this -> db -> where('uti_id', $id) -> where('uti_mdp', sha1($pass."+")) -> get($this -> _table) -> result();
+            if(empty($exist)) {
+                return array('status' => 0, 'message' => 'Mot de passe incorrect');
+            } else {
+                $info_user = array('uti_login' => $login,
+                                    'uti_mdp' => sha1($newpass.'+'));
+                $res = $this -> db -> where('uti_id', $id) -> update($this -> _table, $info_user);
+                return array('status' => $res ? 1 : 0, 'message' => $res ? 'Enregistré avec succès' : 'Echec de la mise à jour. Veuillez réessayer');
+            }
+        }
+    }
+    
    /* public function update_accueil($title, $contenu, $lang = $this -> _lang) {
         $info_acc = array("acc_title" => $title,
                          "acc_content" => $contenu);

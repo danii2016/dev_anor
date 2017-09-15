@@ -11,8 +11,8 @@
             ?>
         <div class="tab-pane fade <?php echo $key == 0 ? 'in active' : ''?>" id ="<?php echo $stat -> stat_annee; ?>">
             <div class="row row-fluid">
-                <?php foreach($images as $img) { ?>
-                    <div class = "stat-image-container col-md-4">
+                <?php foreach($images as $key => $img) { ?>
+                    <div class = "stat-image-container col-md-4" numero = "<?php echo $key; ?>">
                         <img src="<?php echo base_url("assets/documents/statistiques/".$stat -> stat_repertoire."/".$img); ?>" class = "image-stat" />
                     </div>
                 <?php } ?>
@@ -26,7 +26,11 @@
       <!-- The Close Button -->
       <span class="close" onclick="hide_modal('modalImgStat')" data-dismiss="modal">&times;</span>
       <!-- Modal Content (The Image) -->
-      <img class="modal-content" id="img-zoom" src="">
+        <div class="modal-content">
+            <span class = "glyphicon glyphicon-chevron-left" id = "prev-stat"></span>
+            <img id="img-zoom" src="">
+            <span class = "glyphicon glyphicon-chevron-right" id = "next-stat"></span>
+        </div>
       <!-- Modal Caption (Image Text) -->
       <div id="caption"></div>
     </div>

@@ -23,9 +23,14 @@ class Accueil_m extends ANOR_Model{
         return $acc;
     }
     
-    public function update_accueil($title, $contenu, $lang = "fr") {
+    public function update_accueil($title, $contenu, $fic, $lang = "fr") {
         $info_acc = array("acc_title" => $title,
                          "acc_content" => $contenu);
+        $acc = $this -> db -> where('acc_lang', $lang) -> get($this -> _table) -> row();
+        if($fic != "") {
+            @unlink(APPPATH.'../assets/image/pictures/'.$acc -> acc_image);
+            $info_acc['acc_image'] = $fic;
+        }
         return $this -> db -> where("acc_lang", $lang) -> update($this -> _table, $info_acc);
     }
     

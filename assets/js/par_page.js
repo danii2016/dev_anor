@@ -38,7 +38,7 @@ $(document).ready(function() {
             }
             li_perpage += '<li><a id="a-forward">»</a></li>';
             $('.pagination').html(li_perpage);
-            $('.pagination li.active a').trigger('click');
+            $('.pagination li a.active').trigger('click');
         }
     });
     
@@ -52,7 +52,7 @@ $(document).ready(function() {
     
     $(document).on('click','#a-forward', function() {
         var nbelement = parseInt($('#total-element').html()); 
-        var perpage = parseInt($(this).val());
+        var perpage = parseInt($('#nombre-affichage').val());
         var nbli = Math.ceil(nbelement/perpage);
         $('.pagination li a').each(function() {
             if($(this).html() == nbli) {

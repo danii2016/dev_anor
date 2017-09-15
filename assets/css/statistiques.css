@@ -14,7 +14,7 @@
 #stats-wrapper .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 100; /* Sit on top */
+    z-index: 210; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -86,4 +86,18 @@
     #stats-wrapper .modal-content {
         width: 100%;
     }
+}
+#prev-stat {
+    position: fixed;
+    top: 50%;
+    left: 10%;
+    font-size: 42px;
+    cursor: pointer;
+}
+#next-stat {
+    position: fixed;
+    top: 50%;
+    right: 10%;
+    font-size: 42px;
+    cursor: pointer;
 }

@@ -928,12 +928,150 @@ h1.page-header {
 	height: 65px;
 	overflow: scroll;
 }
+/* content */
+#display-content {
+    min-height: 450px;
+    padding-top: 20px;
+}
+.nav li.active {
+    background: #eee;
+}
 
-
-
-
-
-
+/** Gestion des actualités **/
+#titre-article-actu {
+    position: absolute;
+    top: -24px;
+    background: #fff;
+    left: 10px;
+    padding: 5px;
+}
+#add-article-actu {
+    position: absolute;
+    top: -8px;
+    background: #fff;
+    right: 10px;
+    padding: 1px;
+    cursor: pointer;
+    cursor: pointer;
+    color: forestgreen;
+}
+#info-actu, .article {
+    padding: 10px;
+}
+#article-actu {
+    position: relative;
+    border: 1px solid;
+    padding: 10px
+}
+.delete-article {
+    cursor: pointer;
+    color: crimson;
+}
+#data-article {
+    max-height: 320px;
+    overflow-y: auto;
+    overflow-x: hidden
+}
+#error-saveactu {
+    position: absolute;
+    padding: 5px;
+    left: 25%;
+    top: 15px;
+    display: none;
+}
+#error-savegalerie {
+    padding: 5px;
+    position: fixed;
+    top: 20px;
+    left: 33%;
+    display: none;
+}
+#error-saveprocedure {
+    position: fixed;
+    top: 10px;
+    padding: 5px;
+    left: 30%;
+    display: none;
+}
+.edit, .delete { 
+    cursor: pointer;
+}
+.delete {
+    color: crimson;
+}
+.cadre-folder, .stat-folder {
+    float: left;
+    margin-right: 25px;
+    cursor: pointer;
+}
+.cadre-folder .glyphicon-folder-close, .stat-folder .glyphicon-folder-close {
+    color:cadetblue;
+    font-size: 110px;
+}
+.inputfile-1 {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+#warning-cadre, #error-cadre {
+    position: fixed;
+    top: 80px;
+    padding: 5px;
+    left: 45%;
+}
+#error-saveannee {
+    position: fixed;
+    top: 10px;
+    left: 36%;
+    padding: 5px;
+    display: none;
+}
+.image-stat-content {
+    padding: 5px;
+}
+.image-stat-content img {
+    height: 200px;
+    width: 90%;
+}
+.delete-image-stat {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.delete-folder-stat {
+    float: right;
+}
+#error-savelink {
+    position: fixed;
+    top: 10px;
+    padding: 5px;
+    left: 30%;
+    display: none;
+}
+#logo-collaborateur {
+    height: 80px;
+    width: 300px;
+    margin-left: 25%;
+    margin-top: 20px;
+}
+#error-saveprofil {
+    position: fixed;
+    top: 10px;
+    padding: 5px;
+    left: 30%;
+    display: none;
+}
+.main-wrapper .alert {
+    position: fixed;
+    top: 80px;
+    padding: 5px;
+    left: 30%;
+    display: none;
+}
 
 
 

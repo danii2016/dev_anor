@@ -1,3 +1,25 @@
+<?php function sort_with_order($a1, $a2) {
+    $numorder = 5;
+    $num1 = substr($a1, 0, $numorder);
+    $num2 = substr($a2, 0, $numorder);
+    while(!is_numeric($num1) && !is_numeric($num2) && $numorder > 0) {
+        if(!is_numeric($num1)) {
+            $num1 = substr($a1, 0, $numorder);
+        }        
+        if(!is_numeric($num2)) {
+            $num2 = substr($a2, 0, $numorder);
+        }
+        $numorder--;
+    }
+    if(!is_numeric($num1)) {
+        $num1 = 0;
+    }        
+    if(!is_numeric($num2)) {
+        $num2 = 0;
+    }
+    return $num1 > $num2;
+} 
+?>
 <div class="row row-fluid">
     <ul class="nav nav-tabs">
         <?php foreach($rubriques as $key => $rub) {
@@ -12,7 +34,7 @@
                 <div id="cadre-liste-container" class="col-md-4 col-xs-12">
                 <?php  $fichiers = array_map('basename', glob(APPPATH.'../assets/documents/cadres/'.$rub -> crub_repertoire.'/*.*')); 
                         if(!empty($fichiers)) {
-                        
+                            usort($fichiers, "sort_with_order");
                             foreach($fichiers as $fic) {
                                 $nom = substr($fic, 0, strpos($fic,'.'));
                               ?> <a source = "<?php echo base_url('assets/documents/cadres/'.$rub -> crub_repertoire.'/'.$fic) ?>" class = "cadre-fichier-pdf"><?php echo $nom ?></a><br/> 

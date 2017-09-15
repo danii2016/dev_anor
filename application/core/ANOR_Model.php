@@ -91,6 +91,16 @@ class ANOR_model extends CI_Model{
 		if($single) return $res->row();
 		else return $res->result();
     }
+    
+    public function reverse ($date) {
+        $tmp = explode('-', $date);
+        if( 3 > count($tmp) ) {
+            $now = new DateTime('NOW');
+            return $now -> format('Y-m-d');
+        } else {
+            return $tmp[2].'-'.$tmp[1].'-'.$tmp[0];
+        }
+    }
 
 	public function normalizeChars($s) {
 	    $replace = array(

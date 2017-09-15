@@ -22,10 +22,19 @@ class A_propos_m extends ANOR_Model{
         return $ap;
     }
     
-    public function update_propos($title, $contenu, $lang = "fr") {
-        $info_acc = array("acc_title" => $title,
-                         "acc_content" => $contenu);
-        return $this -> db -> where("acc_lang", $lang) -> update($this -> _table, $info_acc);
+    public function update_propos($titleorg, $contenu, $imgac, $imgorg, $lang = "fr") {
+        $info_acc = array("ap_titreorganigramme" => $titleorg,
+                         "ap_contenu" => $contenu);
+        $propos_now = $this -> db -> where("ap_lang", $lang) -> get($this -> _table) -> row();
+        if($imgac != "") {
+            @unlink(APPPATH.'../assets/image/'.$propos_now -> ap_imageaccueil);
+            $info_acc['ap_imageaccueil'] = $imgac;
+        }
+        if($imgorg != "") {
+            @unlink(APPPATH.'../assets/image/'.$propos_now -> ap_imageorganigramme);
+            $info_acc['ap_imageorganigramme'] = $imgorg;
+        }
+        return $this -> db -> where("ap_lang", $lang) -> update($this -> _table, $info_acc);
     }
     
 }

@@ -24,11 +24,61 @@ class Galerie_m extends ANOR_Model{
         return $photos;
     }
     
+    public function save_galerie($id_gal, $directory, $libelle, $imagename) {
+        //$tmp = explode('.', $imagename);
+        $extension = substr($imagename, strrpos($imagename,'.') + 1);
+        $imageok = false;
+        $contents = glob(APPPATH.'../assets/image/galerie/'.$directory.'/*'); 
+        if(empty($contents)) {
+            return array('status' => 0, 'message' => 'Opération annulée, le répertoire est vide');
+        } else {
+            if($extension != $imagename) {
+                if(realpath(APPPATH.'../assets/image/galerie/'.$directory.'/'.$imagename)) {
+                    $imageok = true;
+                } else {
+                    foreach($contents as $img) {
+                        if(strpos(basename($img), $imagename) != false) {
+                            $imagename = basename($img);
+                            $imageok = true;
+                        }
+                    }
+                }
+            } else {
+                foreach($contents as $img) {
+                    //var_dump(strpos(basename($img), $imagename) );
+                    if(strpos(basename($img), $imagename) === 0) {
+                        $imagename = basename($img);
+                        //var_dump($imagename);
+                        $imageok = true;
+                    }
+                }
+            }
+            
+            if(!$imageok) {
+                $imagename = basename($contents[0]);
+            }
+            $info = array('gal_repertoire' => $directory, 
+                              'gal_libelle' => $libelle,
+                              'gal_imagemenu' => $imagename);
+            if($id_gal == "") {
+                $res = $this -> db -> insert($this -> _table, $info);
+            } else {
+                $res = $this -> db -> where('gal_id', $id_gal) -> update($this -> _table, $info);
+            }
+            
+            return array('status' => $res ? 1 : 0 , 'message' => $res ? 'Succès de l\'enregisrtement' : 'Echec de l\'enregistrement. Veuillez réessayer ');
+        }
+    }
+    
+    public function delete_galerie($id) {
+        $res = $this -> db -> where('gal_id', $id) -> delete($this -> _table);
+        return array('status' => $res ? 1 : 0 , 'message' => $res ? 'Succès de la suppression' : 'Echec de la suppression. Veuillez réessayer ');
+    }
+    
     private function generate_thumbs($photo) {
         if(isset($photo->gal_imagemenu) && $photo->gal_imagemenu != "") {
             if(realpath(APPPATH.'../assets/image/galerie/'.$photo ->gal_repertoire.'/'.$photo->gal_imagemenu) && !realpath(APPPATH.'../assets/image/galerie/'.$photo ->gal_repertoire.'/thumbs/'.$photo->gal_imagemenu)) {
-                $tmp = explode('.',$photo->gal_imagemenu);
-                $ext = $tmp[sizeof($tmp) - 1];
+                $ext = substr($photo->gal_imagemenu, strrpos($photo->gal_imagemenu,'.') + 1);
                 switch(strtolower($ext)) {
                     case 'jpg' : $imagetemp = @imagecreatefromjpeg(APPPATH.'../assets/image/galerie/'.$photo ->gal_repertoire.'/'.$photo->gal_imagemenu); 
                         break;
@@ -45,7 +95,7 @@ class Galerie_m extends ANOR_Model{
                 }
                                     
                     
-                if($imagetemp) {
+                if(isset($imagetemp) && $imagetemp) {
 
                     $taille = getimagesize(APPPATH.'../assets/image/galerie/'.$photo ->gal_repertoire.'/'.$photo->gal_imagemenu);
                     $ImageNew = imagecreatetruecolor(180, 100);
